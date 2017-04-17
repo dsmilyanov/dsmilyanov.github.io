@@ -1,7 +1,9 @@
 <html>
   <head>
-   <style>
-    body {
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+body {
       background-color: red;
       background: -moz-linear-gradient(top, #f70000 0%, #ea0000 100%); /* FF3.6-15 */
       background: -webkit-linear-gradient(top, #f70000 0%,#ea0000 100%); /* Chrome10-25,Safari5.1-6 */
@@ -14,6 +16,12 @@
       display:table;
     }
     h1 {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       display: table-cell;
       vertical-align: middle;
       color: white;
@@ -30,18 +38,30 @@
       cursor: pointer;
       color: #cccccc;
     }
+    h2 {
+      display: table-row;
+      vertical-align: middle;
+      color: white;
+      font-size: 8em;
+      font-family: "Roboto";
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+        color: white;
+    }
    </style>
 
    <script>
-
 function pickRandomProfession() {
-  var professions = ["учител", "художник", "дизайнер", "писател"];
+  var professions = ["учител", "художник", "дизайнер", "писател", "директор", "студент", "ученик"];
 
   return professions[Math.floor(Math.random()*professions.length)];
 }
 window.onload = function() {
   var profession = document.getElementById('profession');
   profession.onclick = function() {
+    profession.innerHTML = pickRandomProfession();
     profession.innerHTML = pickRandomProfession();
   }
 }
@@ -50,6 +70,10 @@ window.onload = function() {
   <body>
     <div class="container">
       <h1>Да си <div id="profession">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> не е достатъчно</h1>
+      <h2></h2>
+      <h2>
+        <a href="http://railsgirls.com/sofia" target="blank"><i class="fa fa-heart" aria-hidden="true"></i> + <i class="fa fa-diamond" aria-hidden="true"></i></a>
+      </h2>
     </div>
   </body>
 </html>
