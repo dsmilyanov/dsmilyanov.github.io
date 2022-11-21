@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sassy text</title>
+
+  <script>
+    function onChange(area) {
+      let resultBox = document.querySelector('.result')
+
+      let resultText = area.value.replaceAll(' ', ' 👏 ')
+
+      resultBox.innerHTML = resultText
+    }
+
+    function onButtonClick() {
+      navigator.clipboard.writeText(document.querySelector('.result').innerHTML)
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #A0CFD3;
+      text-align: center;
+    }
+
+    body > div {
+      display: flex;
+      gap: 30px;
+      flex-direction: column;
+      place-items: center;
+      place-content: center;
+      height: 100vh;
+    }
+
+    body > div > * {
+      font-size: 24px;
+      font-family: sans-serif;
+      width: 550px;
+      min-height: 80px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    textarea {
+      background: #8D94BA;
+      padding: 10px;
+      border: 3px solid black;
+    }
+    textarea:hover,
+    textarea:focus,
+    button:focus {
+      outline: 5px solid #9A7AA0;
+    }
+
+    .result {
+      background: #FCFDF2;
+      border: 3px solid black;
+      padding: 10px;
+    }
+
+    button {
+      background-color: #B4EDD2;
+      color: #1C734A;
+      border: 4px solid #9A7AA0;
+      text-transform: capitalize;
+    }
+
+    button:hover {
+      border: 8px solid #8D94BA;
+      background-color: #87677B;
+      color: #EFFBF5;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: translateY(8px);
+    }
+  </style>
+
+</head>
+<body>
+  <div>
+    <textarea oninput="onChange(this)"></textarea>
+    <div class="result"></div>
+    <button onclick="onButtonClick()">Copy to Clipboard</button>
+  </div>
+</body>
+</html>
